@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".TelaLogin">
+
+
+    <TextView
+        android:id="@+id/bem_vindo"
+        android:layout_width="274dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/montserrat_alternates_extrabold_italic"
+        android:gravity="center_horizontal|top"
+        android:includeFontPadding="false"
+        android:text="bem-vindo"
+        android:textAllCaps="true"
+        android:textColor="#FEFEFE"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/who"
+        android:layout_width="219dp"
+        android:layout_height="62dp"
+        android:fontFamily="@font/montserrat_alternates_extrabold_italic"
+        android:gravity="center_horizontal|top"
+        android:includeFontPadding="false"
+        android:text="who"
+        android:textAllCaps="true"
+        android:textColor="#FEFEFE"
+        android:textSize="49sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ao"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <ImageView
+        android:id="@+id/view"
+        android:layout_width="250dp"
+        android:layout_height="317dp"
+        android:background="@drawable/backgroud_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/who"
+        app:layout_constraintVertical_bias="0.212" />
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="58dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="171dp"
+        android:fontFamily="@font/montserrat_alternates_extrabold"
+        android:gravity="center_vertical"
+        android:text="Login:"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/ao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|top"
+        android:includeFontPadding="false"
+        android:text="ao"
+        android:fontFamily="@font/montserrat_alternates_extrabold_italic"
+        android:textAllCaps="true"
+        android:textColor="#FEFEFE"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bem_vindo" />
+
+    <EditText
+        android:id="@+id/editemail"
+        android:layout_width="215dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="29dp"
+        android:background="@drawable/txtedit_background"
+        android:gravity="center_vertical"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#4DFFFFFF"
+        android:textSize="14sp"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
+
+    <TextView
+        android:id="@+id/senha"
+        android:layout_width="58dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="171dp"
+        android:fontFamily="@font/montserrat_alternates_extrabold"
+        android:gravity="center_vertical"
+        android:text="Senha:"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/editemail" />
+
+    <EditText
+        android:id="@+id/editsenha"
+        android:layout_width="215dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="29dp"
+        android:background="@drawable/txtedit_background"
+        android:gravity="center_vertical"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#4DFFFFFF"
+        android:textSize="14sp"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/senha" />
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="200dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="#4E4DC3"
+        android:text="ENTRAR"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/editsenha"
+        app:strokeColor="#FFFFFF"
+        app:strokeWidth="2px" />
+
+    <TextView
+        android:id="@+id/txtbottom"
+        android:layout_width="131dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="106dp"
+        android:clickable="false"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center_vertical"
+        android:text="Não possuí login?"
+        android:textColor="#4DFFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
+
+    <TextView
+        android:id="@+id/cadastrar"
+        android:layout_width="105dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center_vertical"
+        android:onClick="IrTelaCadastro"
+        android:text="CADASTRE-SE"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtbottom"
+        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
