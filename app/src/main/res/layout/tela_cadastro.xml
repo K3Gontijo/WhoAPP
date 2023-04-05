@@ -39,7 +39,7 @@
             android:id="@+id/view"
             android:layout_width="307dp"
             android:layout_height="420dp"
-            android:background="@drawable/backgroud_login"
+            android:background="@drawable/login_backgroud"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -155,7 +155,7 @@
             app:layout_constraintTop_toTopOf="@+id/view" />
 
         <EditText
-            android:id="@+id/editsenha"
+            android:id="@+id/editSenha"
             android:layout_width="250dp"
             android:layout_height="29dp"
             android:layout_marginStart="26dp"
@@ -179,13 +179,15 @@
         <Button
             android:id="@+id/btnCadastrar"
             android:layout_width="199dp"
-            android:layout_height="41dp"
+            android:layout_height="51dp"
             android:layout_marginTop="342dp"
             android:layout_marginEnd="41dp"
             android:layout_marginBottom="37dp"
             android:backgroundTint="#4E4DC3"
-            android:text="Cadastrar"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="Entrar"
             android:textColor="@color/white"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintHorizontal_bias="0.805"

@@ -49,7 +49,7 @@
         android:id="@+id/view"
         android:layout_width="250dp"
         android:layout_height="317dp"
-        android:background="@drawable/backgroud_login"
+        android:background="@drawable/login_backgroud"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bem_vindo" />
 
     <EditText
-        android:id="@+id/editemail"
+        android:id="@+id/editEmail"
         android:layout_width="215dp"
         android:layout_height="29dp"
         android:layout_marginStart="29dp"
@@ -124,10 +124,10 @@
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/editemail" />
+        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
     <EditText
-        android:id="@+id/editsenha"
+        android:id="@+id/editSenha"
         android:layout_width="215dp"
         android:layout_height="29dp"
         android:layout_marginStart="29dp"
@@ -146,22 +146,6 @@
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/senha" />
 
-    <Button
-        android:id="@+id/btnEntrar"
-        android:layout_width="200dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="25dp"
-        android:backgroundTint="#4E4DC3"
-        android:text="ENTRAR"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/editsenha"
-        app:strokeColor="#FFFFFF"
-        app:strokeWidth="2px" />
 
     <TextView
         android:id="@+id/txtbottom"
@@ -182,7 +166,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
     <TextView
-        android:id="@+id/cadastrar"
+        android:id="@+id/txtCadastrar"
         android:layout_width="105dp"
         android:layout_height="31dp"
         android:layout_marginTop="16dp"
@@ -194,9 +178,26 @@
         android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/txtbottom"
         app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="199dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="26dp"
+        android:backgroundTint="#4E4DC3"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:text="Entrar"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/editSenha"
+        app:layout_constraintStart_toStartOf="@+id/editSenha"
+        app:layout_constraintTop_toBottomOf="@+id/editSenha"
+        app:strokeColor="#FFFFFF"
+        app:strokeWidth="2px" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "686153964600",
+    "project_id": "whoapp-36515",
+    "storage_bucket": "whoapp-36515.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686153964600:android:a9479a809766a08e2e5acd",
+        "android_client_info": {
+          "package_name": "com.kauegontijo.who"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686153964600-unmpj52g8fnku2o6k15ngick0gqn93le.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9rB4C0ZbMQ9prqJKJuamV1ecpFLKJYyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686153964600-unmpj52g8fnku2o6k15ngick0gqn93le.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
