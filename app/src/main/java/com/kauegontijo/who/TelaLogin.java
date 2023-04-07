@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 public class TelaLogin extends AppCompatActivity {
 
+    //AQUI ESTAMOS DEFININDO OS ELEMENTOS QUE TEMOS NA NOSSA TELA DE LOGIN
     private EditText editEmail;
     private EditText editSenha;
     private Button btnEntrar;
@@ -23,11 +24,14 @@ public class TelaLogin extends AppCompatActivity {
         setContentView(R.layout.tela_login);
         getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
 
-        editEmail = findViewById(R.id.editEmail);
+
+        //REFERENCIANDO COM OS ELEMENTOS DA INTERFACE
+        editEmail = findViewById(R.id.editemail);
         editSenha = findViewById(R.id.editSenha);
         btnEntrar = findViewById(R.id.btnEntrar);
         txtCadastrar = findViewById(R.id.txtCadastrar);
 
+        //
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +44,7 @@ public class TelaLogin extends AppCompatActivity {
         });
 
     }
-    //METODO ADICIONADO NO txtCastrar PARA MANDAR PARA OUTRA TELA
+    //METODO ADICIONADO NO txtCastrar PARA MANDAR PARA TELA DE CADASTRO
     public void IrTelaCadastro (View v){
         Intent telaCadastro = new Intent(this,TelaCadastro.class);
         startActivity(telaCadastro);
