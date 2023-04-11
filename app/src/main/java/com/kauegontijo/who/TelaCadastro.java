@@ -3,6 +3,7 @@ package com.kauegontijo.who;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,10 +13,19 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseAppLifecycleListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.auth.User;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.lang.ref.Reference;
+import java.util.UUID;
 
 public class TelaCadastro extends AppCompatActivity {
 
@@ -71,21 +81,52 @@ public class TelaCadastro extends AppCompatActivity {
             return;
         }
         //quando os campos forem preenchidos, deve criar um usuário no firebase
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(nome, email, senha)
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
 
                 //implementação que escuta o nosso objeto do firebase
                     //os mais imporstantes são esses dois:
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Log.i("Teste", task.getResult().getUser().getUid());
 
+                            saveUserInFirebase();
+                    }
+                }})
+                //nessa atividade, caso dê algum problema na autenticação, ele nos retorne o que aconteceu
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i("Teste", e.getMessage());
+                    }
+                });
+    }
+
+    //METODO PARA SALVAR DADOS DE UM USUARIO EM UM ARQUIVO NO FIREBASE
+    private void saveUserInFirebase() {
+
+        //definindo as variaves para os dados
+        String nome= editNome.getText().toString();
+        String uid = FirebaseAuth.getInstance().getUid();
+
+        //classe para criar um novo usuario
+        Usuario user = new Usuario(nome, uid);
+
+        //criando uma coleção de usuarios "user"
+        FirebaseFirestore.getInstance().collection("users")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.i("Teste", documentReference.getId());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
+                        Log.i("Teste", e.getMessage());
                     }
                 });
+        }
     }
-}

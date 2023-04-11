@@ -1,5 +1,6 @@
 package com.kauegontijo.who;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class TelaLogin extends AppCompatActivity {
 
@@ -40,6 +48,33 @@ public class TelaLogin extends AppCompatActivity {
 
                 Log.i("Teste", email);
                 Log.i("Teste", senha);
+
+                if (email == null || email.isEmpty()){
+                    Toast.makeText(TelaLogin.this, "EMAIL deve ser preenchido", Toast.LENGTH_SHORT).show();
+                    return;
+                }if (senha == null || senha.isEmpty()){
+                    Toast.makeText(TelaLogin.this, "SENHA deve ser preenchida", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(email, senha)
+                        //implementação que escuta o nosso objeto do firebase
+                        //os mais imporstantes são esses dois:
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()){
+                                    Log.i("Teste", task.getResult().getUser().getUid());
+                                }
+                            }})
+
+                        //nessa atividade, caso dê algum problema na autenticação, ele nos retorne o que aconteceu
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.i("Teste", e.getMessage());
+                            }
+                        });
             }
         });
 
