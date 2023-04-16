@@ -9,23 +9,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseAppLifecycleListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.auth.User;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import java.lang.ref.Reference;
-import java.util.UUID;
 
 public class TelaCadastro extends AppCompatActivity {
 
@@ -35,6 +29,7 @@ public class TelaCadastro extends AppCompatActivity {
     private EditText editSenha;
     private EditText editConfirma;
     private Button btnCadastrar;
+    private TextView txtErro;
 
 
     @Override
@@ -49,6 +44,7 @@ public class TelaCadastro extends AppCompatActivity {
         editSenha = findViewById(R.id.editSenha);
         editConfirma = findViewById(R.id.editConfirma);
         btnCadastrar = findViewById(R.id.btnCadastrar);
+        txtErro = findViewById(R.id.txtErro);
 
         //DANDO A FUNCÇÃO DE CRIAR UM USUARIO USANDO O METODO "CREATEUSER"
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +62,7 @@ public class TelaCadastro extends AppCompatActivity {
         String nome = editNome.getText().toString();
         String senha2 = editConfirma.getText().toString();
 
+
         //verificando se os campos foram preenchidos
         if (nome == null || nome.isEmpty()) {
             Toast.makeText(this, "NOME deve ser preenchido", Toast.LENGTH_SHORT).show();
@@ -80,7 +77,9 @@ public class TelaCadastro extends AppCompatActivity {
             Toast.makeText(this, "Confirme a senha", Toast.LENGTH_SHORT).show();
             return;
         }
-        //quando os campos forem preenchidos, deve criar um usuário no firebase
+
+
+        //GUARDANDO O USUARIO CADASTRADO NO FIREBASE
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
 
                 //implementação que escuta o nosso objeto do firebase
@@ -90,18 +89,22 @@ public class TelaCadastro extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Log.i("Teste", task.getResult().getUser().getUid());
-
                             saveUserInFirebase();
+                            IrTelaLogin();
                     }
                 }})
                 //nessa atividade, caso dê algum problema na autenticação, ele nos retorne o que aconteceu
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        //aqui vou fazer que apareça uma mensagem para o usuario caso não exista cadastro
+                        txtErro.setText("Email já está sendo utilizado");
                         Log.i("Teste", e.getMessage());
                     }
                 });
     }
+
+
 
     //METODO PARA SALVAR DADOS DE UM USUARIO EM UM ARQUIVO NO FIREBASE
     private void saveUserInFirebase() {
@@ -128,5 +131,10 @@ public class TelaCadastro extends AppCompatActivity {
                         Log.i("Teste", e.getMessage());
                     }
                 });
+        }
+
+        public void IrTelaLogin(){
+            Intent telaLogin = new Intent(this, TelaLogin.class);
+            startActivity(telaLogin);
         }
     }

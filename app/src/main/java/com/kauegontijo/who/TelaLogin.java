@@ -25,6 +25,7 @@ public class TelaLogin extends AppCompatActivity {
     private EditText editSenha;
     private Button btnEntrar;
     private TextView txtCadastrar;
+    private TextView txtErro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class TelaLogin extends AppCompatActivity {
         editSenha = findViewById(R.id.editSenha);
         btnEntrar = findViewById(R.id.btnEntrar);
         txtCadastrar = findViewById(R.id.txtCadastrar);
+        txtErro = findViewById(R.id.txtErro);
 
         //
         btnEntrar.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +67,7 @@ public class TelaLogin extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()){
                                     Log.i("Teste", task.getResult().getUser().getUid());
+                                    IrTelaInicial();
                                 }
                             }})
 
@@ -72,16 +75,22 @@ public class TelaLogin extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
+                                //aqui vou fazer que apareça uma mensagem para o usuario caso não exista cadastro
+                                txtErro.setText("Email ou senha inválidos");
                                 Log.i("Teste", e.getMessage());
                             }
                         });
             }
         });
-
     }
     //METODO ADICIONADO NO txtCastrar PARA MANDAR PARA TELA DE CADASTRO
     public void IrTelaCadastro (View v){
         Intent telaCadastro = new Intent(this,TelaCadastro.class);
         startActivity(telaCadastro);
+    }
+
+    public void IrTelaInicial (){
+        Intent telaInicial = new Intent(this, TelaInicial.class);
+        startActivity(telaInicial);
     }
 }

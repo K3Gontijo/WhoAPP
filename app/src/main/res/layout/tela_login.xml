@@ -154,7 +154,7 @@
         android:layout_width="131dp"
         android:layout_height="31dp"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="106dp"
         android:clickable="false"
         android:fontFamily="@font/montserrat_medium"
@@ -163,7 +163,7 @@
         android:textColor="#4DFFFFFF"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
@@ -171,7 +171,7 @@
         android:id="@+id/txtCadastrar"
         android:layout_width="105dp"
         android:layout_height="31dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:clickable="true"
         android:fontFamily="@font/montserrat_medium"
         android:gravity="center_vertical"
@@ -180,7 +180,7 @@
         android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/txtbottom"
         app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
@@ -189,7 +189,7 @@
         android:layout_width="199dp"
         android:layout_height="51dp"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="26dp"
         android:backgroundTint="#4E4DC3"
         android:fontFamily="@font/montserrat_extrabold"
@@ -201,5 +201,19 @@
         app:layout_constraintTop_toBottomOf="@+id/editSenha"
         app:strokeColor="#FFFFFF"
         app:strokeWidth="2px" />
+
+    <TextView
+        android:id="@+id/txtErro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text=""
+        android:textColor="#DC1D1D"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/editSenha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
