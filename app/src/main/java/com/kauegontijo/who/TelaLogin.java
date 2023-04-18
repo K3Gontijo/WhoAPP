@@ -76,7 +76,7 @@ public class TelaLogin extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 //aqui vou fazer que apareça uma mensagem para o usuario caso não exista cadastro
-                                txtErro.setText("Email ou senha inválidos");
+                                txtErro.setText("Email ou senha inválido");
                                 Log.i("Teste", e.getMessage());
                             }
                         });

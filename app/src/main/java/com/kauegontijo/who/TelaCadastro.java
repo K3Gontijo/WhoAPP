@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -46,11 +47,19 @@ public class TelaCadastro extends AppCompatActivity {
         btnCadastrar = findViewById(R.id.btnCadastrar);
         txtErro = findViewById(R.id.txtErro);
 
-        //DANDO A FUNCÇÃO DE CRIAR UM USUARIO USANDO O METODO "CREATEUSER"
+        //DANDO A FUNÇÃO DE CRIAR UM USUARIO USANDO O METODO "CREATEUSER"
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createUser();
+
+                //AQUI VOU PERGUNTAR PARA O PROFESSOR COMO FAÇO PARA COMPARAR OS DOIS
+
+                if (editConfirma.getText().toString() == editSenha.getText().toString()) {
+                    createUser();
+                }else if(editConfirma.getText().toString() != editSenha.getText().toString()){
+                    txtErro.setText("Senhas não conferem");
+
+                }
             }
         });
     }
@@ -67,13 +76,13 @@ public class TelaCadastro extends AppCompatActivity {
         if (nome == null || nome.isEmpty()) {
             Toast.makeText(this, "NOME deve ser preenchido", Toast.LENGTH_SHORT).show();
             return;
-        }if (email == null || email.isEmpty()){
+        }else if (email == null || email.isEmpty()){
             Toast.makeText(this, "EMAIL deve ser preenchido", Toast.LENGTH_SHORT).show();
             return;
-        }if (senha == null || senha.isEmpty()){
+        }else if (senha == null || senha.isEmpty()){
             Toast.makeText(this, "SENHA deve ser preenchida", Toast.LENGTH_SHORT).show();
             return;
-        }if (senha2 == null || senha2.isEmpty()){
+        }else if (senha2 == null || senha2.isEmpty()){
             Toast.makeText(this, "Confirme a senha", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -93,6 +102,7 @@ public class TelaCadastro extends AppCompatActivity {
                             IrTelaLogin();
                     }
                 }})
+
                 //nessa atividade, caso dê algum problema na autenticação, ele nos retorne o que aconteceu
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -133,6 +143,7 @@ public class TelaCadastro extends AppCompatActivity {
                 });
         }
 
+        //METODO PARA MANDAR PRA OUTRA TELA
         public void IrTelaLogin(){
             Intent telaLogin = new Intent(this, TelaLogin.class);
             startActivity(telaLogin);
