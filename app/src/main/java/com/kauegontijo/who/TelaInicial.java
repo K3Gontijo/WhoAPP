@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.HorizontalScrollView;
 
 public class TelaInicial extends AppCompatActivity {
 
@@ -13,6 +14,7 @@ public class TelaInicial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_inicial);
         getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
+
     }
 
     //METODO PARA MANDAR PARA TELA DE LOGIN

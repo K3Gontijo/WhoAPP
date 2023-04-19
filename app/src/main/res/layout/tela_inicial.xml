@@ -97,29 +97,29 @@
         android:id="@+id/recentes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="280dp"
         android:fontFamily="@font/montserrat_extrabold"
         android:text="Buscas Recentes"
         android:textAllCaps="true"
         android:textColor="#4E4DC3"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/box_destaques" />
 
     <TextView
         android:id="@+id/servicos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="458dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/montserrat_extrabold"
         android:text="Serviços"
         android:textAllCaps="true"
         android:textColor="#4E4DC3"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/box_recentes" />
 
     <View
         android:id="@+id/box_destaques"
@@ -137,15 +137,68 @@
         android:id="@+id/box_recentes"
         android:layout_width="412dp"
         android:layout_height="125dp"
-        android:layout_marginTop="318dp"
-        android:layout_marginBottom="262dp"
+        android:layout_marginTop="15dp"
         android:background="#CC2C2ABD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recentes"
         app:layout_constraintVertical_bias="0.038" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="409dp"
+        android:layout_height="180dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/servicos"
+        tools:layout_editor_absoluteX="1dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/service1"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="30dp"
+                android:text="service1" />
+
+            <Button
+                android:id="@+id/service2"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="30dp"
+                android:text="service2" />
+
+            <Button
+                android:id="@+id/service3"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="30dp"
+                android:text="service3" />
+
+            <Button
+                android:id="@+id/service4"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="30dp"
+                android:text="service4" />
+
+        </LinearLayout>
+
+
+    </HorizontalScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
