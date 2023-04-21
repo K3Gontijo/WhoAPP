@@ -200,7 +200,7 @@
         app:layout_constraintStart_toStartOf="@+id/editSenha"
         app:layout_constraintTop_toBottomOf="@+id/editSenha"
         app:strokeColor="#FFFFFF"
-        app:strokeWidth="2px" />
+        app:strokeWidth="3px" />
 
     <TextView
         android:id="@+id/txtErro"

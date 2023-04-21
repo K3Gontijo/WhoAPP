@@ -51,24 +51,18 @@ public class TelaCadastro extends AppCompatActivity {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //AQUI VOU PERGUNTAR PARA O PROFESSOR COMO FAÇO PARA COMPARAR OS DOIS
-
-                if (editConfirma.getText().toString() == editSenha.getText().toString()) {
-                    createUser();
-                }else if(editConfirma.getText().toString() != editSenha.getText().toString()){
-                    txtErro.setText("Senhas não conferem");
-
-                }
+                createUser();
             }
         });
     }
 
-    //CRIANDO O METODO PARA CRIAR UM NOVO USUARIO
+
+
+//CRIANDO O METODO PARA CRIAR UM NOVO USUARIO
     private void createUser() {
+        String nome = editNome.getText().toString();
         String email = editEmail.getText().toString();
         String senha = editSenha.getText().toString();
-        String nome = editNome.getText().toString();
         String senha2 = editConfirma.getText().toString();
 
 
@@ -88,35 +82,44 @@ public class TelaCadastro extends AppCompatActivity {
         }
 
 
-        //GUARDANDO O USUARIO CADASTRADO NO FIREBASE
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
+        //verificando se as duas senhas conferem
+        if(senha2.equals(senha)){
 
-                //implementação que escuta o nosso objeto do firebase
+            //guardando o usuario cadastrado no firebase
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
+
+                    //implementação que escuta o nosso objeto do firebase
                     //os mais imporstantes são esses dois:
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Log.i("Teste", task.getResult().getUser().getUid());
-                            saveUserInFirebase();
-                            IrTelaLogin();
-                    }
-                }})
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()){
+                                Log.i("Teste", task.getResult().getUser().getUid());
+                                saveUserInFirebase();
+                                IrTelaLogin();
+                            }
+                        }})
 
-                //nessa atividade, caso dê algum problema na autenticação, ele nos retorne o que aconteceu
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        //aqui vou fazer que apareça uma mensagem para o usuario caso não exista cadastro
-                        txtErro.setText("Email já está sendo utilizado");
-                        Log.i("Teste", e.getMessage());
-                    }
-                });
+                    //nessa atividade, caso dê algum problema na autenticação, ele nos retorne o que aconteceu
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            //aqui vou fazer que apareça uma mensagem para o usuario caso não exista cadastro
+                            txtErro.setText("Email já está sendo utilizado");
+                            Log.i("Teste", e.getMessage());
+                        }
+                    });
+
+        } else if (senha != senha2) {
+            txtErro.setText("Senhas não conferem");
+            return;
+        }
     }
 
 
 
-    //METODO PARA SALVAR DADOS DE UM USUARIO EM UM ARQUIVO NO FIREBASE
+
+//METODO PARA SALVAR DADOS DE UM USUARIO EM UM ARQUIVO NO FIREBASE
     private void saveUserInFirebase() {
 
         //definindo as variaves para os dados
@@ -126,7 +129,7 @@ public class TelaCadastro extends AppCompatActivity {
         //classe para criar um novo usuario
         Usuario user = new Usuario(nome, uid);
 
-        //criando uma coleção de usuarios "user"
+        //criando uma coleção de usuarios "user" no FireStore
         FirebaseFirestore.getInstance().collection("users")
                 .add(user)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -141,11 +144,15 @@ public class TelaCadastro extends AppCompatActivity {
                         Log.i("Teste", e.getMessage());
                     }
                 });
-        }
-
-        //METODO PARA MANDAR PRA OUTRA TELA
-        public void IrTelaLogin(){
-            Intent telaLogin = new Intent(this, TelaLogin.class);
-            startActivity(telaLogin);
-        }
     }
+
+
+
+//METODO PARA MANDAR PRA OUTRA TELA
+    public void IrTelaLogin(){
+        Intent telaLogin = new Intent(this, TelaLogin.class);
+        startActivity(telaLogin);
+    }
+}
+
+

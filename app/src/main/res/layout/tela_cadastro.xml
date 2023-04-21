@@ -199,7 +199,7 @@
             app:layout_constraintTop_toTopOf="@+id/view"
             app:layout_constraintVertical_bias="0.0"
             app:strokeColor="#FFFFFF"
-            app:strokeWidth="2px" />
+            app:strokeWidth="3px" />
 
         <EditText
             android:id="@+id/editConfirma"
