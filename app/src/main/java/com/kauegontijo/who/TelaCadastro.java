@@ -56,9 +56,7 @@ public class TelaCadastro extends AppCompatActivity {
         });
     }
 
-
-
-//CRIANDO O METODO PARA CRIAR UM NOVO USUARIO
+    //CRIANDO O METODO PARA CRIAR UM NOVO USUARIO
     private void createUser() {
         String nome = editNome.getText().toString();
         String email = editEmail.getText().toString();
@@ -152,6 +150,13 @@ public class TelaCadastro extends AppCompatActivity {
     public void IrTelaLogin(){
         Intent telaLogin = new Intent(this, TelaLogin.class);
         startActivity(telaLogin);
+    }
+
+
+//SOBREESCREVENDO O BOTAO DE VOLTAR DO CELULAR PARA MANDAR PARA TELA PRINCIPAL
+    @Override
+    public void onBackPressed() {
+        IrTelaLogin();
     }
 }
 
