@@ -178,7 +178,6 @@
             android:textSize="14sp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:drawableRight="@drawable/baseline_remove_red_eye_24"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintHorizontal_bias="0.0"
@@ -223,7 +222,6 @@
             android:textSize="14sp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:drawableRight="@drawable/baseline_remove_red_eye_24"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintStart_toStartOf="@+id/view"
             app:layout_constraintTop_toTopOf="@+id/view" />
@@ -241,6 +239,34 @@
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="@+id/view"
             app:layout_constraintTop_toBottomOf="@+id/editConfirma" />
+
+        <ImageView
+            android:id="@+id/hideEye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:onClick="ChangeType"
+            app:flow_verticalAlign="center"
+            app:layout_constraintEnd_toEndOf="@+id/editSenha"
+            app:layout_constraintTop_toTopOf="@+id/editSenha"
+            app:srcCompat="@drawable/baseline_remove_red_eye_24"
+            tools:srcCompat="@drawable/baseline_remove_red_eye_24" />
+
+        <ImageView
+            android:id="@+id/hideEye2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:onClick="ChangeType2"
+            app:flow_verticalAlign="center"
+            app:layout_constraintEnd_toEndOf="@+id/editConfirma"
+            app:layout_constraintTop_toTopOf="@+id/editConfirma"
+            app:srcCompat="@drawable/baseline_remove_red_eye_24"
+            tools:srcCompat="@drawable/baseline_remove_red_eye_24" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

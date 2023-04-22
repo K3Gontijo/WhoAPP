@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,8 @@ public class TelaCadastro extends AppCompatActivity {
     private EditText editConfirma;
     private Button btnCadastrar;
     private TextView txtErro;
+    private ImageView hideEye;
+    private ImageView hideEye2;
 
 
     @Override
@@ -46,6 +50,9 @@ public class TelaCadastro extends AppCompatActivity {
         editConfirma = findViewById(R.id.editConfirma);
         btnCadastrar = findViewById(R.id.btnCadastrar);
         txtErro = findViewById(R.id.txtErro);
+        hideEye = findViewById(R.id.hideEye);
+        hideEye2 = findViewById(R.id.hideEye2);
+
 
         //DANDO A FUNÇÃO DE CRIAR UM USUARIO USANDO O METODO "CREATEUSER"
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +164,37 @@ public class TelaCadastro extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         IrTelaLogin();
+    }
+
+
+
+//METODO PRA MOSTRAR E ESCONDER SENHA
+    public void ChangeType (View v){
+
+        if(editSenha.getInputType() == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD){
+            editSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            hideEye.setImageResource(R.drawable.baseline_remove_red_eye_24);
+
+        }else {
+            hideEye.setImageResource(R.drawable.baseline_visibility_off_24);
+            editSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            editSenha.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        }
+    }
+
+
+//METODO PRA MOSTRAR E ESCONDER SENHA (confirma senha)
+    public void ChangeType2 (View v){
+
+        if(editConfirma.getInputType() == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD){
+            editConfirma.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            hideEye2.setImageResource(R.drawable.baseline_remove_red_eye_24);
+
+        }else {
+            hideEye2.setImageResource(R.drawable.baseline_visibility_off_24);
+            editConfirma.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            editConfirma.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        }
     }
 }
 

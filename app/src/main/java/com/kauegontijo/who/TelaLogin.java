@@ -7,10 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,8 @@ public class TelaLogin extends AppCompatActivity {
     private Button btnEntrar;
     private TextView txtCadastrar;
     private TextView txtErro;
+    private ImageView hideEye;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +46,10 @@ public class TelaLogin extends AppCompatActivity {
         btnEntrar = findViewById(R.id.btnEntrar);
         txtCadastrar = findViewById(R.id.txtCadastrar);
         txtErro = findViewById(R.id.txtErro);
+        hideEye = findViewById(R.id.hideEye);
 
-        //
+
+//DEFININDO A FUNÇÃO DO BOTÃO AO CLICAR
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,10 +59,11 @@ public class TelaLogin extends AppCompatActivity {
                 Log.i("Teste", email);
                 Log.i("Teste", senha);
 
-                if (email == null || email.isEmpty()){
+                if (email == null || email.isEmpty()) {
                     Toast.makeText(TelaLogin.this, "EMAIL deve ser preenchido", Toast.LENGTH_SHORT).show();
                     return;
-                }if (senha == null || senha.isEmpty()){
+                }
+                if (senha == null || senha.isEmpty()) {
                     Toast.makeText(TelaLogin.this, "SENHA deve ser preenchida", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -67,11 +74,12 @@ public class TelaLogin extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()){
+                                if (task.isSuccessful()) {
                                     Log.i("Teste", task.getResult().getUser().getUid());
                                     IrTelaInicial();
                                 }
-                            }})
+                            }
+                        })
 
                         //nessa atividade, caso dê algum problema na autenticação, ele nos retorne o que aconteceu
                         .addOnFailureListener(new OnFailureListener() {
@@ -85,16 +93,18 @@ public class TelaLogin extends AppCompatActivity {
             }
         });
     }
+
     //METODO ADICIONADO NO txtCastrar PARA MANDAR PARA TELA DE CADASTRO
-    public void IrTelaCadastro (View v){
-        Intent telaCadastro = new Intent(this,TelaCadastro.class);
+    public void IrTelaCadastro(View v) {
+        Intent telaCadastro = new Intent(this, TelaCadastro.class);
         startActivity(telaCadastro);
     }
 
-    public void IrTelaInicial (){
+    public void IrTelaInicial() {
         Intent telaInicial = new Intent(this, TelaInicial.class);
         startActivity(telaInicial);
     }
+
 
     //SOBREESCREVENDO O BOTAO DE VOLTAR DO CELULAR PARA MOSTRAR UMA MENSAGEM SE O USUARIO QUER FECHAR O APLICATIVO
     @Override
@@ -115,5 +125,20 @@ public class TelaLogin extends AppCompatActivity {
             }
         });
         alertDialog.show();
+    }
+
+
+//METODO PRA MOSTRAR E ESCONDER SENHA
+    public void ChangeType (View v){
+
+        if(editSenha.getInputType() == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD){
+            editSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            hideEye.setImageResource(R.drawable.baseline_remove_red_eye_24);
+
+        }else {
+            hideEye.setImageResource(R.drawable.baseline_visibility_off_24);
+            editSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            editSenha.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        }
     }
 }
