@@ -49,6 +49,24 @@ public class TelaInicial extends AppCompatActivity {
         startActivity(irMotoboy);
     }
 
+    //METODO PARA MANDAR PARA TELA DE DESTAQUES
+    public void IrDestaques(View v){
+        Intent irDestaques = new Intent(this, TelaDestaques.class);
+        startActivity(irDestaques);
+    }
+
+    //METODO PARA MANDAR PARA TELA DE RECENTES
+    public void IrRecentes(View v){
+        Intent irRecentes = new Intent(this, TelaRescentes.class);
+        startActivity(irRecentes);
+    }
+
+    //METODO PARA MANDAR PARA TELA DE SERVIÇOS
+    public void IrServicos(View v){
+        Intent irServicos = new Intent(this, TelaServicos.class);
+        startActivity(irServicos);
+    }
+
 
     //SOBREESCREVENDO O BOTAO DE VOLTAR DO CELULAR PARA MOSTRAR UMA MENSAGEM SE O USUARIO QUER FECHAR O APLICATIVO
     @Override

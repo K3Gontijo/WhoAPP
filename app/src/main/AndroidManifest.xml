@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Who"
         tools:targetApi="31">
         <activity
+            android:name=".TelaServicos"
+            android:exported="false" />
+        <activity
+            android:name=".TelaRescentes"
+            android:exported="false" />
+        <activity
+            android:name=".TelaDestaques"
+            android:exported="false" />
+        <activity
             android:name=".BuscaMotoboy"
             android:exported="false" />
         <activity
