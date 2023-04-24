@@ -31,6 +31,24 @@ public class TelaInicial extends AppCompatActivity {
         startActivity(irEletricista);
     }
 
+    //METODO PARA MANDAR PARA TELA DE MECANICO
+    public void IrMecanico(View v){
+        Intent irMecanico = new Intent(this, BuscaMecanico.class);
+        startActivity(irMecanico);
+    }
+
+    //METODO PARA MANDAR PARA TELA DE MARCENEIRO
+    public void IrMarceneiro(View v){
+        Intent irMarceneiro = new Intent(this, BuscaMarceneiro.class);
+        startActivity(irMarceneiro);
+    }
+
+    //METODO PARA MANDAR PARA TELA DE MOTOBOY
+    public void IrMotoboy(View v){
+        Intent irMotoboy = new Intent(this, BuscaMotoboy.class);
+        startActivity(irMotoboy);
+    }
+
 
     //SOBREESCREVENDO O BOTAO DE VOLTAR DO CELULAR PARA MOSTRAR UMA MENSAGEM SE O USUARIO QUER FECHAR O APLICATIVO
     @Override
