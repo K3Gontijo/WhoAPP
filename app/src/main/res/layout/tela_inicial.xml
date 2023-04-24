@@ -160,41 +160,45 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/service1"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_marginStart="9dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="30dp"
-                android:text="service1" />
+                android:background="@drawable/background_btn_service"
+                android:src="@drawable/eletricista"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/service2"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_marginStart="9dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="30dp"
-                android:text="service2" />
+                android:background="@drawable/background_btn_service"
+                android:src="@drawable/mecanico"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/service3"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_marginStart="9dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="30dp"
-                android:text="service3" />
+                android:background="@drawable/background_btn_service"
+                android:src="@drawable/marceneiro"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/service4"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_marginStart="9dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="30dp"
-                android:text="service4" />
+                android:background="@drawable/background_btn_service"
+                android:src="@drawable/entrega_rapida"/>
 
         </LinearLayout>
 
