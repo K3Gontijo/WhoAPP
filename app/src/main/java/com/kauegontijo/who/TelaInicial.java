@@ -25,6 +25,12 @@ public class TelaInicial extends AppCompatActivity {
         startActivity(irPerfil);
     }
 
+    //METODO PARA MANDAR PARA TELA DE ELETRICISTA
+    public void IrEletricista(View v){
+        Intent irEletricista = new Intent(this, BuscaEletricista.class);
+        startActivity(irEletricista);
+    }
+
 
     //SOBREESCREVENDO O BOTAO DE VOLTAR DO CELULAR PARA MOSTRAR UMA MENSAGEM SE O USUARIO QUER FECHAR O APLICATIVO
     @Override
