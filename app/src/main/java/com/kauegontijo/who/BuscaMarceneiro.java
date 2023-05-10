@@ -9,6 +9,6 @@ public class BuscaMarceneiro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_busca_marceneiro);
+        setContentView(R.layout.busca_marceneiro);
     }
 }

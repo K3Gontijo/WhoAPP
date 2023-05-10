@@ -9,6 +9,6 @@ public class BuscaEletricista extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_busca_eletricista);
+        setContentView(R.layout.busca_eletricista);
     }
 }

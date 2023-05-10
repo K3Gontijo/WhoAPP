@@ -9,6 +9,6 @@ public class BuscaMecanico extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_busca_mecanico);
+        setContentView(R.layout.busca_mecanico);
     }
 }

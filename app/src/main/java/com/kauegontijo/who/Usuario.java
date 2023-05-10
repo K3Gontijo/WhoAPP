@@ -2,8 +2,13 @@ package com.kauegontijo.who;
 
 public class Usuario {
 
-    private final String nome;
-    private final String uid;
+    private String nome;
+    private String uid;
+    private String url;
+
+    public Usuario(){
+
+    }
 
     public Usuario(String nome, String uid) {
         this.nome = nome;
@@ -16,5 +21,9 @@ public class Usuario {
 
     public String getUid() {
         return uid;
+    }
+
+    public String getUrl() {
+        return url;
     }
 }
