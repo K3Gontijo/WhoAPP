@@ -23,7 +23,6 @@ import java.util.List;
 public class TelaPerfil extends AppCompatActivity {
 
     private TextView editNome;
-    String usuarioID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,5 +38,10 @@ public class TelaPerfil extends AppCompatActivity {
     public void IrInicio (View v){
         Intent irInicio = new Intent(this, TelaInicial.class);
         startActivity(irInicio);
+    }
+
+    public void IrConfig (View v){
+        Intent irConfig = new Intent(this, TelaConfig.class);
+        startActivity(irConfig);
     }
 }

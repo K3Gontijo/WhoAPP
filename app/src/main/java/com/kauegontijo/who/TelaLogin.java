@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class TelaLogin extends AppCompatActivity {
 
@@ -32,12 +33,25 @@ public class TelaLogin extends AppCompatActivity {
     private TextView txtErro;
     private ImageView hideEye;
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(usuarioAtual != null){
+            IrTelaInicial();
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_login);
         getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
+
+
 
 
         //REFERENCIANDO COM OS ELEMENTOS DA INTERFACE
@@ -93,6 +107,9 @@ public class TelaLogin extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     //METODO ADICIONADO NO txtCastrar PARA MANDAR PARA TELA DE CADASTRO
     public void IrTelaCadastro(View v) {
