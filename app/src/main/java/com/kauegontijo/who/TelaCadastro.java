@@ -110,7 +110,7 @@ public class TelaCadastro extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             //aqui vou fazer que apareça uma mensagem para o usuario caso não exista cadastro
-                            txtErro.setText("Email já está sendo utilizado");
+                            txtErro.setText("Email inválido");
                             Log.i("Teste", e.getMessage());
                         }
                     });
