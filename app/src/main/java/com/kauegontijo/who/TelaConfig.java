@@ -23,6 +23,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class TelaConfig extends AppCompatActivity {
 
     ListView listView;
+
+    //aqui criamos vetores que recebem os atributos de cada item das configurações
     String mTitulos[] = {"Sair"};
     String mDescricoes[] = {"Clique aqui para deslogar"};
     int imagens[] = {R.drawable.ic_logout};
@@ -34,13 +36,14 @@ public class TelaConfig extends AppCompatActivity {
         setContentView(R.layout.tela_config);
         getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
 
-
         listView = findViewById(R.id.lista);
 
+        //criamos um adapter para guardar os valor na lista
         MyAdapter adapter = new MyAdapter(this, mTitulos, mDescricoes, imagens);
         listView.setAdapter(adapter);
 
 
+        //ação quando clicamos em algum item da lista
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -99,5 +102,11 @@ public class TelaConfig extends AppCompatActivity {
 
             return item;
         }
+    }
+
+    //METODO PARA MANDAR DE VOLTA PARA O INICIO
+    public void IrInicio (View v) {
+        Intent irInicio = new Intent(this, TelaInicial.class);
+        startActivity(irInicio);
     }
 }
