@@ -1,40 +1,33 @@
 package com.kauegontijo.who;
 
-import static android.content.ContentValues.TAG;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.MediaStore;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.kauegontijo.who.databinding.TelaPerfilBinding;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import java.util.List;
-
 public class TelaPerfil extends AppCompatActivity {
 
+    private ImageView fotoPerfil;
     private TextView editNome;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioAtual;
+    private Uri fotoUri;
 
 
     @Override
@@ -52,7 +45,17 @@ public class TelaPerfil extends AppCompatActivity {
         getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
 
         editNome = findViewById(R.id.editNome);
+        fotoPerfil = findViewById(R.id.fotoPerfil);
 
+
+        fotoPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //função para escolher a foto na galeria
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(Intent.createChooser(intent, "Escolha sua imagem"), 1);
+            }
+        });
     }
 
     //METODO PARA MANDA REDIRECIONAR PARA TELA INICIAL
@@ -68,6 +71,7 @@ public class TelaPerfil extends AppCompatActivity {
     }
 
 
+    //METODO PARA PUXAR OS DADOS DO USUARIO DA BANCO DE DADOS
     public void ChamaDados(){
 
         usuarioAtual = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -88,5 +92,15 @@ public class TelaPerfil extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    //metodo para tratar a resposta da chamada de dados da galeria
+    protected void onActivityResult(int RequestCode, int ResultCode, Intent dados) {
+        super.onActivityResult(RequestCode, ResultCode, dados);
+        if (ResultCode == Activity.RESULT_OK) {
+            if (RequestCode == 1) {
+                fotoPerfil.setImageURI(dados.getData());
+            }
+        }
     }
 }
