@@ -6,13 +6,10 @@ public class Usuario {
     private String uid;
     private String url;
 
-    public Usuario(){
-
-    }
-
-    public Usuario(String nome, String uid) {
+    public Usuario(String nome, String uid, String url) {
         this.nome = nome;
         this.uid = uid;
+        this.url = url;
     }
 
     public String getNome() {

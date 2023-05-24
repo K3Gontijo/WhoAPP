@@ -103,7 +103,7 @@
         android:adjustViewBounds="false"
         android:background="@drawable/background_btn_perfil"
         android:clickable="true"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="@+id/box_center"
         app:layout_constraintTop_toTopOf="@+id/box_center"
         app:srcCompat="@drawable/perfil_de_usuario__1__1" />

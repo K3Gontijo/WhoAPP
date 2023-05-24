@@ -63,7 +63,7 @@ public class TelaCadastro extends AppCompatActivity {
         });
     }
 
-    //CRIANDO O METODO PARA CRIAR UM NOVO USUARIO
+    //METODO PARA CRIAR UM NOVO USUARIO
     private void createUser() {
         String nome = editNome.getText().toString();
         String email = editEmail.getText().toString();
@@ -130,17 +130,19 @@ public class TelaCadastro extends AppCompatActivity {
         //definindo as variaves para os dados
         String nome= editNome.getText().toString();
         String uid = FirebaseAuth.getInstance().getUid();
+        String url = "";
 
         //classe para criar um novo usuario
-        Usuario user = new Usuario(nome, uid);
+        Usuario user = new Usuario(nome, uid, url);
 
         //criando uma coleção de usuarios "user" no FireStore
         FirebaseFirestore.getInstance().collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                .document(uid)
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.i("Teste", documentReference.getId());
+                    public void onSuccess(Void aVoid) {
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
