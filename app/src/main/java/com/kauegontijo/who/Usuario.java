@@ -5,11 +5,13 @@ public class Usuario {
     private String nome;
     private String uid;
     private String url;
+    private String descricao;
 
-    public Usuario(String nome, String uid, String url) {
+    public Usuario(String nome, String uid, String url, String descricao) {
         this.nome = nome;
         this.uid = uid;
         this.url = url;
+        this.descricao = descricao;
     }
 
     public String getNome() {

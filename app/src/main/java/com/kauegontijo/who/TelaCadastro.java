@@ -131,9 +131,10 @@ public class TelaCadastro extends AppCompatActivity {
         String nome= editNome.getText().toString();
         String uid = FirebaseAuth.getInstance().getUid();
         String url = "";
+        String descricao = "";
 
         //classe para criar um novo usuario
-        Usuario user = new Usuario(nome, uid, url);
+        Usuario user = new Usuario(nome, uid, url, descricao);
 
         //criando uma coleção de usuarios "user" no FireStore
         FirebaseFirestore.getInstance().collection("users")
