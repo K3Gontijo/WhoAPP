@@ -218,10 +218,11 @@
         android:paddingBottom="5dp"
         android:paddingEnd="20dp"
         android:paddingStart="20dp"
-        android:text="dsa"
+        android:text=""
         android:textColor="#FFFFFF"
         android:textColorHint="#4DFFFFFF"
         android:textSize="12sp"
+        android:maxLength="368"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/box_center"
         app:layout_constraintTop_toBottomOf="@+id/fotoPerfil" />
