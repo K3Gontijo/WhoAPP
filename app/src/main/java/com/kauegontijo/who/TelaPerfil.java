@@ -129,11 +129,6 @@ public class TelaPerfil extends AppCompatActivity {
                                                         fotoPerfil.setImageBitmap(bitmap);
 
                                                     }
-                                                }).addOnFailureListener(new OnFailureListener() {
-                                                    @Override
-                                                    public void onFailure(@androidx.annotation.NonNull Exception e) {
-                                                        Toast.makeText(TelaPerfil.this, "Falha ao carregar a imagem", Toast.LENGTH_SHORT).show();
-                                                    }
                                                 });
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
