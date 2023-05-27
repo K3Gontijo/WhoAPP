@@ -9,7 +9,7 @@
 
     <View
         android:id="@+id/box_top_shadow"
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:background="#402C2ABD"
@@ -20,7 +20,7 @@
 
     <View
         android:id="@+id/box_top"
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#2C2ABD"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,26 +31,24 @@
 
     <View
         android:id="@+id/box_bottom_shadow"
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="37dp"
         android:background="#402C2ABD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <View
         android:id="@+id/box_bottom"
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="32dp"
         android:background="#2C2ABD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -71,15 +69,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:layout_width="410dp"
-        android:layout_height="631dp"
         android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="641dp"
         app:layout_constraintBottom_toTopOf="@+id/box_bottom_shadow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/box_top_shadow"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.637">
 
 
     </ListView>

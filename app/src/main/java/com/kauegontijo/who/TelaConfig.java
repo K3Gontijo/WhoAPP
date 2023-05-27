@@ -25,9 +25,9 @@ public class TelaConfig extends AppCompatActivity {
     ListView listView;
 
     //aqui criamos vetores que recebem os atributos de cada item das configurações
-    String mTitulos[] = {"Sair"};
-    String mDescricoes[] = {"Clique aqui para deslogar"};
-    int imagens[] = {R.drawable.ic_logout};
+    String mTitulos[] = {"Sair", "Editar Perfil"};
+    String mDescricoes[] = {"Clique aqui para deslogar", "Edite seu perfil aqui"};
+    int imagens[] = {R.drawable.ic_logout, R.drawable.baseline_edit_config};
 
 
     @Override
@@ -66,6 +66,9 @@ public class TelaConfig extends AppCompatActivity {
                         }
                     });
                     alertDialog.show();
+                }
+                if(position == 1) {
+
                 }
                 //aqui voce pode adicionar mais opções, basta mudar o valor do position
             }

@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -125,6 +126,7 @@ public class TelaPerfil extends AppCompatActivity {
                                                     @Override
                                                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
 
+                                                        //defindo a foto de perfil dele
                                                         Bitmap bitmap = BitmapFactory.decodeFile(arquivoLocal.getAbsolutePath());
                                                         fotoPerfil.setImageBitmap(bitmap);
 
