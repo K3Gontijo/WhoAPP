@@ -10,5 +10,7 @@ public class BuscaEletricista extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.busca_eletricista);
+        getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
+
     }
 }

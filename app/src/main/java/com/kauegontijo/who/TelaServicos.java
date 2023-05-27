@@ -10,5 +10,7 @@ public class TelaServicos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_servicos);
+        getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
+
     }
 }

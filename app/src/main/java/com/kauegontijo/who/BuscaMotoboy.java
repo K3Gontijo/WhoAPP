@@ -10,5 +10,7 @@ public class BuscaMotoboy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.busca_motoboy);
+        getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
+
     }
 }

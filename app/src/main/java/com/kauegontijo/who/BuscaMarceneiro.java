@@ -10,5 +10,7 @@ public class BuscaMarceneiro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.busca_marceneiro);
+        getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
+
     }
 }

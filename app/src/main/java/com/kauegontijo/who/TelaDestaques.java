@@ -10,5 +10,7 @@ public class TelaDestaques extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_destaques);
+        getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
+
     }
 }
