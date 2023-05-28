@@ -68,7 +68,7 @@ public class TelaPerfil extends AppCompatActivity {
             public void onClick(View view) {
                 //função para escolher a foto na galeria
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                startActivityForResult(Intent.createChooser(intent, "Escolha sua imagem"), 1);
+                startActivityForResult(Intent.createChooser(intent, "Escolha uma imagem"), 1);
             }
         });
     }

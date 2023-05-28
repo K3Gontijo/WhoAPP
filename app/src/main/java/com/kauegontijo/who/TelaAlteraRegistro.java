@@ -1,7 +1,9 @@
 package com.kauegontijo.who;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +21,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class TelaAlteraRegistro extends AppCompatActivity {
-    private Button btnUpload;
     private EditText editNome, editDescr;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioAtual = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -87,5 +88,25 @@ public class TelaAlteraRegistro extends AppCompatActivity {
     public void IrPerfil(){
         Intent irPerfil = new Intent(this, TelaPerfil.class);
         startActivity(irPerfil);
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(TelaAlteraRegistro.this);
+        alertDialog.setTitle("Salvar?");
+        alertDialog.setMessage("Quer mesmo sair sem salvar?");
+        alertDialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                finishAffinity();
+            }
+        });
+        alertDialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                dialogInterface.dismiss();
+            }
+        });
+        alertDialog.show();
     }
 }
