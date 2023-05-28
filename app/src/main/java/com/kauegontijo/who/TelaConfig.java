@@ -68,7 +68,7 @@ public class TelaConfig extends AppCompatActivity {
                     alertDialog.show();
                 }
                 if(position == 1) {
-
+                    IrAlteraRegistro();
                 }
                 //aqui voce pode adicionar mais opções, basta mudar o valor do position
             }
@@ -111,5 +111,10 @@ public class TelaConfig extends AppCompatActivity {
     public void IrInicio (View v) {
         Intent irInicio = new Intent(this, TelaInicial.class);
         startActivity(irInicio);
+    }
+
+    public void IrAlteraRegistro(){
+        Intent irAltera = new Intent(this, TelaAlteraRegistro.class);
+        startActivity(irAltera);
     }
 }

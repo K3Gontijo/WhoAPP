@@ -42,6 +42,7 @@ public class TelaPerfil extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioAtual = FirebaseAuth.getInstance().getCurrentUser().getUid();
     private Uri mSelectedUri;
+    private TextView txtDescricao;
 
     @Override
     public void onStart() {
@@ -59,6 +60,7 @@ public class TelaPerfil extends AppCompatActivity {
 
         editNome = findViewById(R.id.editNome);
         fotoPerfil = findViewById(R.id.fotoPerfil);
+        txtDescricao = findViewById(R.id.txtDescricao);
 
 
         fotoPerfil.setOnClickListener(new View.OnClickListener() {
@@ -107,8 +109,7 @@ public class TelaPerfil extends AppCompatActivity {
 
                                 //definindo na tela o nome do usuário
                                 editNome.setText(document.get("nome").toString());
-
-
+                                txtDescricao.setText(document.get("descricao").toString());
 
 
                                 //verficando se o usuário ja possui foto ou não
@@ -199,11 +200,6 @@ public class TelaPerfil extends AppCompatActivity {
 
         db.collection("users")
                 .document(usuarioAtual)
-                .update("url", filename).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@androidx.annotation.NonNull Task<Void> task) {
-                        Log.i("Teste", "Update feito");
-                    }
-                });
+                .update("url", filename);
     }
 }

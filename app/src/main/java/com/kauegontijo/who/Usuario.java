@@ -25,4 +25,8 @@ public class Usuario {
     public String getUrl() {
         return url;
     }
+
+    public String getDescricao(){
+        return descricao;
+    }
 }

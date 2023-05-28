@@ -110,7 +110,7 @@ public class TelaCadastro extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             //aqui vou fazer que apareça uma mensagem para o usuario caso não exista cadastro
-                            txtErro.setText("Email inválido");
+                            txtErro.setText("Email ou senha inválido");
                             Log.i("Teste", e.getMessage());
                         }
                     });
@@ -136,7 +136,7 @@ public class TelaCadastro extends AppCompatActivity {
         //classe para criar um novo usuario
         Usuario user = new Usuario(nome, uid, url, descricao);
 
-        //criando uma coleção de usuarios "user" no FireStore
+        //Referenciando o banco e adicionando um novo documento na coleção
         FirebaseFirestore.getInstance().collection("users")
                 .document(uid)
                 .set(user)

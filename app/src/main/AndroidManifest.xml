@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Who"
         tools:targetApi="31">
         <activity
+            android:name=".TelaAlteraRegistro"
+            android:exported="false" />
+        <activity
             android:name=".TelaConfig"
             android:exported="false" />
         <activity
