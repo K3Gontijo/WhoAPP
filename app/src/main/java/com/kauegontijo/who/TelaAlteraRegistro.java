@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,7 +27,7 @@ public class TelaAlteraRegistro extends AppCompatActivity {
     private EditText editNome, editDescr;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioAtual = FirebaseAuth.getInstance().getCurrentUser().getUid();
-    private CheckBox trabEletricista, trabMecanico, trabMarceneiro, trabMotoboy;
+    private RadioButton trabEletricista, trabMecanico, trabMarceneiro, trabMotoboy;
     private String novoTrabalho;
 
     @Override
@@ -125,6 +126,11 @@ public class TelaAlteraRegistro extends AppCompatActivity {
         startActivity(irPerfil);
     }
 
+    public void IrInicio(View v){
+        Intent irInicio = new Intent(this, TelaInicial.class);
+        startActivity(irInicio);
+    }
+
 
     //se o usuário clicar no botão para voltar
     @Override
@@ -135,7 +141,7 @@ public class TelaAlteraRegistro extends AppCompatActivity {
         alertDialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                finishAffinity();
+                IrPerfil();
             }
         });
         alertDialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {

@@ -187,20 +187,20 @@
         android:id="@+id/editNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxWidth="200dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/txtedit_background"
         android:fontFamily="@font/montserrat_extrabold"
+        android:maxWidth="200dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textColorHint="#4DFFFFFF"
         android:textSize="23sp"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        app:layout_constraintEnd_toEndOf="@+id/box_center"
-        app:layout_constraintHorizontal_bias="0.692"
-        app:layout_constraintStart_toStartOf="@+id/box_center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toEndOf="@+id/fotoPerfil"
         app:layout_constraintTop_toTopOf="@+id/box_center" />
 
     <TextView
@@ -252,6 +252,7 @@
         android:textColor="@color/white"
         android:clickable="true"
         android:onClick="IrAlteraRegistro"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/fotoPerfil"
         app:layout_constraintTop_toBottomOf="@+id/editNome" />
 

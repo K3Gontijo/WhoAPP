@@ -120,13 +120,17 @@ public class TelaPerfil extends AppCompatActivity {
                                 editNome.setText(document.get("nome").toString());
 
                                 //definindo o serviço
-                                trabalho.setText(document.get("trabalho").toString());
+                                if(document.get("trabalho")!= ""){
+                                    //mudando a visibilidade do botão
+                                    trabalho.setClickable(false);
+                                    trabalho.setText(document.get("trabalho").toString());;
+                                }
+
 
                                 //verificando se o usuario ja tem descrição para tirar a opção de editar
                                 if(document.get("descricao")!= ""){
                                     //mudando a visibilidade do botão
                                     editarDescricao.setVisibility(View.INVISIBLE);
-
                                     txtDescricao.setText(document.get("descricao").toString());
                                 }
 
