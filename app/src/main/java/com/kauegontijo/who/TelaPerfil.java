@@ -40,7 +40,7 @@ public class TelaPerfil extends AppCompatActivity {
 
     private ImageButton editarDescricao;
     private ImageView fotoPerfil;
-    private TextView editNome;
+    private TextView editNome, trabalho;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioAtual = FirebaseAuth.getInstance().getCurrentUser().getUid();
     private Uri mSelectedUri;
@@ -61,6 +61,7 @@ public class TelaPerfil extends AppCompatActivity {
         getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
 
         editNome = findViewById(R.id.editNome);
+        trabalho = findViewById(R.id.txtTrabalho);
         fotoPerfil = findViewById(R.id.fotoPerfil);
         txtDescricao = findViewById(R.id.txtDescricao);
         editarDescricao = findViewById(R.id.editarDescricao);
@@ -117,6 +118,9 @@ public class TelaPerfil extends AppCompatActivity {
 
                                 //definindo na tela o nome do usuário
                                 editNome.setText(document.get("nome").toString());
+
+                                //definindo o serviço
+                                trabalho.setText(document.get("trabalho").toString());
 
                                 //verificando se o usuario ja tem descrição para tirar a opção de editar
                                 if(document.get("descricao")!= ""){
