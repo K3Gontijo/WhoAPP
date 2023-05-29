@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,7 @@ import java.util.UUID;
 
 public class TelaPerfil extends AppCompatActivity {
 
+    private ImageButton editarDescricao;
     private ImageView fotoPerfil;
     private TextView editNome;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -61,6 +63,7 @@ public class TelaPerfil extends AppCompatActivity {
         editNome = findViewById(R.id.editNome);
         fotoPerfil = findViewById(R.id.fotoPerfil);
         txtDescricao = findViewById(R.id.txtDescricao);
+        editarDescricao = findViewById(R.id.editarDescricao);
 
 
         fotoPerfil.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +93,11 @@ public class TelaPerfil extends AppCompatActivity {
         startActivity(irConfig);
     }
 
+    public void IrAlteraRegistro(View v){
+        Intent irAltera = new Intent(this, TelaAlteraRegistro.class);
+        startActivity(irAltera);
+    }
+
 
 
 
@@ -109,7 +117,14 @@ public class TelaPerfil extends AppCompatActivity {
 
                                 //definindo na tela o nome do usuário
                                 editNome.setText(document.get("nome").toString());
-                                txtDescricao.setText(document.get("descricao").toString());
+
+                                //verificando se o usuario ja tem descrição para tirar a opção de editar
+                                if(document.get("descricao")!= ""){
+                                    //mudando a visibilidade do botão
+                                    editarDescricao.setVisibility(View.INVISIBLE);
+
+                                    txtDescricao.setText(document.get("descricao").toString());
+                                }
 
 
                                 //verficando se o usuário ja possui foto ou não
