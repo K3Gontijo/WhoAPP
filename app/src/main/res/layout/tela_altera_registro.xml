@@ -144,5 +144,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDescr" />
 
+    <TextView
+        android:id="@+id/txtTrabalho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:text="Trabalho"
+        android:textColor="#4E4DC3"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editDescr" />
 
+    <LinearLayout
+        android:layout_width="133dp"
+        android:layout_height="195dp"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTrabalho">
+
+        <CheckBox
+            android:id="@+id/trabEletricista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eletricista"
+
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat_medium"/>
+
+        <CheckBox
+            android:id="@+id/trabMecanico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mecânico"
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat_medium"/>
+
+        <CheckBox
+            android:id="@+id/trabMarceneiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Marceneiro"
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat_medium"/>
+
+        <CheckBox
+            android:id="@+id/trabMotoboy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Motoboy"
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat_medium"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

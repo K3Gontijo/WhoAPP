@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,10 +22,12 @@ import com.google.firebase.firestore.QuerySnapshot;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class TelaAlteraRegistro extends AppCompatActivity {
+
     private EditText editNome, editDescr;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioAtual = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+    private CheckBox trabEletricista, trabMecanico, trabMarceneiro, trabMotoboy;
+    private String novoTrabalho;
 
     @Override
     protected void onStart() {
@@ -40,10 +43,40 @@ public class TelaAlteraRegistro extends AppCompatActivity {
 
         editNome = findViewById(R.id.editNome);
         editDescr = findViewById(R.id.editDescr);
-
+        trabEletricista = findViewById(R.id.trabEletricista);
+        trabMecanico = findViewById(R.id.trabMecanico);
+        trabMarceneiro = findViewById(R.id.trabMarceneiro);
+        trabMotoboy = findViewById(R.id.trabMotoboy);
 
     }
 
+    //VER QUAL TRABALHO FOI SELECIONADO
+    public void VerificaTrabalho(){
+        if(trabEletricista.isChecked() == true){
+            novoTrabalho = "Eletricista";
+            db.collection("users")
+                    .document(usuarioAtual)
+                    .update("trabalho", novoTrabalho);
+
+        } else if (trabMecanico.isChecked() == true) {
+            novoTrabalho = "Mecânico";
+            db.collection("users")
+                    .document(usuarioAtual)
+                    .update("trabalho", novoTrabalho);
+
+        } else if (trabMarceneiro.isChecked() == true) {
+            novoTrabalho = "Marceneiro";
+            db.collection("users")
+                    .document(usuarioAtual)
+                    .update("trabalho", novoTrabalho);
+
+        } else if (trabMotoboy.isChecked()) {
+            novoTrabalho = "Motoboy";
+            db.collection("users")
+                    .document(usuarioAtual)
+                    .update("trabalho", novoTrabalho);
+        }
+    }
 
 
     //METODO PARA COLOCAR OS DADOS NOS ELEMENTOS
@@ -82,6 +115,8 @@ public class TelaAlteraRegistro extends AppCompatActivity {
                 .document(usuarioAtual)
                 .update("descricao", novaDescricao);
 
+        VerificaTrabalho();
+
         IrPerfil();
     }
 
@@ -90,6 +125,8 @@ public class TelaAlteraRegistro extends AppCompatActivity {
         startActivity(irPerfil);
     }
 
+
+    //se o usuário clicar no botão para voltar
     @Override
     public void onBackPressed() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(TelaAlteraRegistro.this);

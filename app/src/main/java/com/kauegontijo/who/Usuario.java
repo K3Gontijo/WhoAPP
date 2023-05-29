@@ -6,12 +6,14 @@ public class Usuario {
     private String uid;
     private String url;
     private String descricao;
+    private String trabalho;
 
-    public Usuario(String nome, String uid, String url, String descricao) {
+    public Usuario(String nome, String uid, String url, String descricao, String trabalho) {
         this.nome = nome;
         this.uid = uid;
         this.url = url;
         this.descricao = descricao;
+        this.trabalho = trabalho;
     }
 
     public String getNome() {
@@ -28,5 +30,9 @@ public class Usuario {
 
     public String getDescricao(){
         return descricao;
+    }
+
+    public String getTrabalho(){
+        return trabalho;
     }
 }

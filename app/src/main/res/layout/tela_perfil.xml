@@ -244,12 +244,14 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/descricao_backgroud"
-        android:hint="service"
-        android:textColorHint="@color/white"
+        android:hint="add service"
+        android:textColorHint="#A1FFFFFF"
         android:textSize="12sp"
         android:padding="10px"
         android:fontFamily="@font/montserrat_medium"
         android:textColor="@color/white"
+        android:clickable="true"
+        android:onClick="IrAlteraRegistro"
         app:layout_constraintStart_toEndOf="@+id/fotoPerfil"
         app:layout_constraintTop_toBottomOf="@+id/editNome" />
 
