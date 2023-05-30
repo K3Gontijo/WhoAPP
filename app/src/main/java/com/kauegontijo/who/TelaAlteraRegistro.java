@@ -60,7 +60,7 @@ public class TelaAlteraRegistro extends AppCompatActivity {
                     .update("trabalho", novoTrabalho);
 
         } else if (trabMecanico.isChecked() == true) {
-            novoTrabalho = "Mecânico";
+            novoTrabalho = "Mecanico";
             db.collection("users")
                     .document(usuarioAtual)
                     .update("trabalho", novoTrabalho);

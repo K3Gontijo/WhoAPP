@@ -31,12 +31,6 @@ public class BuscaMecanico extends AppCompatActivity {
 
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        BuscaUsuarios();
-
-    }
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.busca_mecanico);
@@ -44,12 +38,13 @@ public class BuscaMecanico extends AppCompatActivity {
 
         rv = findViewById(R.id.listaMecanico);
         itens = new ArrayList<Usuario>();
+        BuscaUsuarios();
     }
 
 
     public void BuscaUsuarios(){
         db.collection("users")
-                .whereEqualTo("trabalho", "Mecânico")
+                .whereEqualTo("trabalho", "Mecanico")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

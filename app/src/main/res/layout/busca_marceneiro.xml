@@ -55,14 +55,14 @@
         android:layout_height="30dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
+        android:clickable="true"
         android:fontFamily="@font/montserrat_alternates_semibold_italic"
+        android:onClick="IrIncio"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:clickable="true"
-        android:onClick="IrInicio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

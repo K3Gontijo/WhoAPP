@@ -54,6 +54,13 @@ public class TelaPerfil extends AppCompatActivity {
         ChamaDados();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent inicio = new Intent(this, TelaInicial.class);
+        startActivity(inicio);
+    }
+
     //ONCREATE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,7 +151,7 @@ public class TelaPerfil extends AppCompatActivity {
                                     Picasso.get().load(url).into(fotoPerfil);
                                 //caso o usuário não tenha foto ainda
                                 }else{
-                                    Toast.makeText(TelaPerfil.this, "Usuário não possui foto", Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(TelaPerfil.this, "Usuário não possui foto", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         } else {

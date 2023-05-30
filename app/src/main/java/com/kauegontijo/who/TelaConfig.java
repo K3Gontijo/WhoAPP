@@ -29,6 +29,11 @@ public class TelaConfig extends AppCompatActivity {
     private String mDescricoes[] = {"Clique aqui para deslogar", "Edite seu perfil aqui"};
     private int imagens[] = {R.drawable.ic_logout, R.drawable.baseline_edit_config};
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        IrPerfil();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,5 +121,10 @@ public class TelaConfig extends AppCompatActivity {
     public void IrAlteraRegistro(){
         Intent irAltera = new Intent(this, TelaAlteraRegistro.class);
         startActivity(irAltera);
+    }
+
+    public void IrPerfil(){
+        Intent irPerfil = new Intent(this, TelaPerfil.class);
+        startActivity(irPerfil);
     }
 }

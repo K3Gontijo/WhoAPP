@@ -29,13 +29,6 @@ public class BuscaMarceneiro extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioAtual = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        BuscaUsuarios();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +37,7 @@ public class BuscaMarceneiro extends AppCompatActivity {
 
         rv = findViewById(R.id.listaMarceneiro);
         itens = new ArrayList<Usuario>();
+        BuscaUsuarios();
     }
 
     public void BuscaUsuarios(){

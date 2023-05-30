@@ -31,12 +31,6 @@ public class BuscaMotoboy extends AppCompatActivity {
 
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        BuscaUsuarios();
-
-    }
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.busca_motoboy);
@@ -44,6 +38,7 @@ public class BuscaMotoboy extends AppCompatActivity {
 
         rv = findViewById(R.id.listaMotoboy);
         itens = new ArrayList<Usuario>();
+        BuscaUsuarios();
 
     }
     public void BuscaUsuarios(){

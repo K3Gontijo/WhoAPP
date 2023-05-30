@@ -57,14 +57,14 @@
         android:layout_height="30dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
+        android:clickable="true"
         android:fontFamily="@font/montserrat_alternates_semibold_italic"
+        android:onClick="IrInicio"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:clickable="true"
-        android:onClick="IrInicio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,6 +110,7 @@
         android:paddingStart="15dp"
         android:textSize="14sp"
         android:maxLength="30"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNome" />
@@ -140,6 +141,7 @@
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         android:textSize="14sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,6 +172,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Eletricista"
+            android:textColor="@color/black"
             android:fontFamily="@font/montserrat_medium"/>
 
         <RadioButton
@@ -177,6 +180,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Mecânico"
+            android:textColor="@color/black"
             android:fontFamily="@font/montserrat_medium"/>
 
         <RadioButton
@@ -184,6 +188,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Marceneiro"
+            android:textColor="@color/black"
             android:fontFamily="@font/montserrat_medium"/>
 
         <RadioButton
@@ -191,6 +196,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Motoboy"
+            android:textColor="@color/black"
             android:fontFamily="@font/montserrat_medium"/>
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

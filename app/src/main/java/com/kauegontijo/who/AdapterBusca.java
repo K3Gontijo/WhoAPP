@@ -1,7 +1,10 @@
 package com.kauegontijo.who;
 
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +42,14 @@ public class AdapterBusca extends RecyclerView.Adapter<BuscaViewHolder> {
         buscaViewHolder.nome.setText(usuario.getNome());
         buscaViewHolder.trabalho.setText(usuario.getTrabalho());
         buscaViewHolder.descricao.setText(usuario.getDescricao());
-        Picasso.get().load(usuario.getUrl()).into(buscaViewHolder.fotoUsuario);
+
+        if (usuario.getUrl() != ""){
+            Picasso.get().load(usuario.getUrl()).into(buscaViewHolder.fotoUsuario);
+
+        }else if (usuario.getUrl() == ""){
+
+
+        }
 
     }
 
