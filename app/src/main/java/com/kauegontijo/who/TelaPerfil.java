@@ -29,6 +29,7 @@ import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -136,36 +137,15 @@ public class TelaPerfil extends AppCompatActivity {
 
 
                                 //verficando se o usuário ja possui foto ou não
-                                if(document.get("url") != null){
+                                if(document.get("url") != ""){
                                     //variavel para armazenar a url do usuario
                                     String url = document.get("url").toString();
 
-                                    //puxando a foto, caso o usuario ja tenha foto
-                                    StorageReference ref = FirebaseStorage.getInstance().getReference("/images/" + url);
-
-                                    try {
-                                        File arquivoLocal = File.createTempFile("tempFile", ".jpg");
-                                        ref.getFile(arquivoLocal)
-                                                .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                                                    @Override
-                                                    public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-
-                                                        //defindo a foto de perfil dele
-                                                        Bitmap bitmap = BitmapFactory.decodeFile(arquivoLocal.getAbsolutePath());
-                                                        fotoPerfil.setImageBitmap(bitmap);
-
-                                                    }
-                                                });
-                                    } catch (IOException e) {
-                                        throw new RuntimeException(e);
-                                    }
-
+                                    Picasso.get().load(url).into(fotoPerfil);
                                 //caso o usuário não tenha foto ainda
                                 }else{
                                     Toast.makeText(TelaPerfil.this, "Usuário não possui foto", Toast.LENGTH_SHORT).show();
                                 }
-
-
                             }
                         } else {
                             Toast.makeText(TelaPerfil.this, "Não foi possível carregar os dados", Toast.LENGTH_SHORT).show();
@@ -209,6 +189,11 @@ public class TelaPerfil extends AppCompatActivity {
                         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
+
+                                db.collection("users")
+                                                .document(usuarioAtual)
+                                                        .update("url",uri);
+
                                 Log.i("Teste", uri.toString());
                             }
                         });

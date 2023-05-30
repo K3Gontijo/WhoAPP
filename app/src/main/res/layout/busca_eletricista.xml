@@ -55,14 +55,27 @@
         android:layout_height="30dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
+        android:clickable="true"
         android:fontFamily="@font/montserrat_alternates_semibold_italic"
+        android:onClick="IrIncio"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:clickable="true"
-        android:onClick="IrInicio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="641dp"
+        app:layout_constraintBottom_toTopOf="@+id/box_bottom_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/box_top_shadow"
+        app:layout_constraintVertical_bias="0.637" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

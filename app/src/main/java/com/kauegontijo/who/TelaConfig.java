@@ -22,12 +22,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class TelaConfig extends AppCompatActivity {
 
-    ListView listView;
+    private ListView listView;
 
     //aqui criamos vetores que recebem os atributos de cada item das configurações
-    String mTitulos[] = {"Sair", "Editar Perfil"};
-    String mDescricoes[] = {"Clique aqui para deslogar", "Edite seu perfil aqui"};
-    int imagens[] = {R.drawable.ic_logout, R.drawable.baseline_edit_config};
+    private String mTitulos[] = {"Sair", "Editar Perfil"};
+    private String mDescricoes[] = {"Clique aqui para deslogar", "Edite seu perfil aqui"};
+    private int imagens[] = {R.drawable.ic_logout, R.drawable.baseline_edit_config};
 
 
     @Override
