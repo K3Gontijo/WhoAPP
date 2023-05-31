@@ -124,34 +124,25 @@ public class TelaPerfil extends AppCompatActivity {
                         if (!task.getResult().isEmpty()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                //definindo na tela o nome do usuário
                                 editNome.setText(document.get("nome").toString());
 
                                 //definindo o serviço
                                 if(document.get("trabalho")!= ""){
-                                    //mudando a visibilidade do botão
                                     trabalho.setClickable(false);
                                     trabalho.setText(document.get("trabalho").toString());;
                                 }
 
-
-                                //verificando se o usuario ja tem descrição para tirar a opção de editar
                                 if(document.get("descricao")!= ""){
                                     //mudando a visibilidade do botão
                                     editarDescricao.setVisibility(View.INVISIBLE);
                                     txtDescricao.setText(document.get("descricao").toString());
                                 }
 
-
                                 //verficando se o usuário ja possui foto ou não
                                 if(document.get("url") != ""){
-                                    //variavel para armazenar a url do usuario
                                     String url = document.get("url").toString();
 
                                     Picasso.get().load(url).into(fotoPerfil);
-                                //caso o usuário não tenha foto ainda
-                                }else{
-                                    //Toast.makeText(TelaPerfil.this, "Usuário não possui foto", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         } else {
@@ -175,7 +166,7 @@ public class TelaPerfil extends AppCompatActivity {
                 mSelectedUri = dados.getData();
 
                 //aqui estamos definindo a imagem no layout
-                fotoPerfil.setImageURI(mSelectedUri);
+                Picasso.get().load(mSelectedUri).into(fotoPerfil);
                 //aqui estamos mandando a foto para o firestorage
                 UploadFoto();
             }
@@ -212,9 +203,5 @@ public class TelaPerfil extends AppCompatActivity {
                         Log.e("Teste", e.getMessage(), e);
                     }
                 });
-
-        db.collection("users")
-                .document(usuarioAtual)
-                .update("url", filename);
     }
 }

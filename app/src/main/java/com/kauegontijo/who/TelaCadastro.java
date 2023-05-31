@@ -92,9 +92,6 @@ public class TelaCadastro extends AppCompatActivity {
 
             //guardando o usuario cadastrado no firebase
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
-
-                    //implementação que escuta o nosso objeto do firebase
-                    //os mais imporstantes são esses dois:
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -104,17 +101,13 @@ public class TelaCadastro extends AppCompatActivity {
                                 IrTelaLogin();
                             }
                         }})
-
-                    //nessa atividade, caso dê algum problema na autenticação, ele nos retorne o que aconteceu
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //aqui vou fazer que apareça uma mensagem para o usuario caso não exista cadastro
                             txtErro.setText("Email ou senha inválido");
                             Log.i("Teste", e.getMessage());
                         }
                     });
-
         } else if (senha != senha2) {
             txtErro.setText("Senhas não conferem");
             return;
@@ -124,7 +117,7 @@ public class TelaCadastro extends AppCompatActivity {
 
 
 
-//METODO PARA SALVAR DADOS DE UM USUARIO EM UM ARQUIVO NO FIREBASE
+    //METODO PARA SALVAR DADOS DE UM USUARIO EM UM ARQUIVO NO FIREBASE
     private void saveUserInFirebase() {
 
         //definindo as variaves para os dados
@@ -134,17 +127,14 @@ public class TelaCadastro extends AppCompatActivity {
         String descricao = "";
         String trabalho ="";
 
-        //classe para criar um novo usuario
         Usuario user = new Usuario(nome, uid, url, descricao, trabalho);
 
-        //Referenciando o banco e adicionando um novo documento na coleção
         FirebaseFirestore.getInstance().collection("users")
                 .document(uid)
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

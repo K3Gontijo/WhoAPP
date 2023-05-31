@@ -63,7 +63,7 @@ public class TelaLogin extends AppCompatActivity {
         hideEye = findViewById(R.id.hideEye);
 
 
-//DEFININDO A FUNÇÃO DO BOTÃO AO CLICAR
+        //DEFININDO A FUNÇÃO DO BOTÃO AO CLICAR
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,8 +83,6 @@ public class TelaLogin extends AppCompatActivity {
                 }
 
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email, senha)
-                        //implementação que escuta o nosso objeto do firebase
-                        //os mais imporstantes são esses dois:
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -94,12 +92,9 @@ public class TelaLogin extends AppCompatActivity {
                                 }
                             }
                         })
-
-                        //nessa atividade, caso dê algum problema na autenticação, ele nos retorne o que aconteceu
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                //aqui vou fazer que apareça uma mensagem para o usuario caso não exista cadastro
                                 txtErro.setText("Email ou senha inválido");
                                 Log.i("Teste", e.getMessage());
                             }
