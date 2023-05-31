@@ -20,7 +20,7 @@ public class TelaInicial extends AppCompatActivity {
 
     }
 
-    //METODO PARA MANDAR PARA TELA DE LOGIN
+    //METODO PARA MANDAR PARA TELA DE PERFIL
     public void IrPerfil(View v){
         Intent irPerfil = new Intent(this, TelaPerfil.class);
         startActivity(irPerfil);

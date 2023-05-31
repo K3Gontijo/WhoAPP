@@ -87,10 +87,6 @@ public class TelaPerfil extends AppCompatActivity {
 
 
 
-
-
-
-
     //METODOS PARA REDIRECIONAR TELA
     public void IrInicio (View v){
         Intent irInicio = new Intent(this, TelaInicial.class);
