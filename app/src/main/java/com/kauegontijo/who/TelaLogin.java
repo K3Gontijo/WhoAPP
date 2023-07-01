@@ -39,8 +39,15 @@ public class TelaLogin extends AppCompatActivity {
 
         FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
 
-        if(usuarioAtual != null){
-            IrTelaInicial();
+        if (VerificaNet.isNetworkConnected(getApplicationContext())) {
+            // O dispositivo tem conectividade de Internet
+
+            if(usuarioAtual != null){
+                IrTelaInicial();
+            }
+        } else{
+            //FAZER A INTERFACE DE ERRO
+            IrTelaErro();
         }
     }
 
@@ -50,8 +57,6 @@ public class TelaLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_login);
         getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
-
-
 
 
         //REFERENCIANDO COM OS ELEMENTOS DA INTERFACE
@@ -115,6 +120,11 @@ public class TelaLogin extends AppCompatActivity {
     public void IrTelaInicial() {
         Intent telaInicial = new Intent(this, TelaInicial.class);
         startActivity(telaInicial);
+    }
+
+    public void IrTelaErro(){
+        Intent telaErro = new Intent(this, TelaErro.class);
+        startActivity(telaErro);
     }
 
 

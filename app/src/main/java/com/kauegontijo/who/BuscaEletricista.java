@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -68,6 +69,7 @@ public class BuscaEletricista extends AppCompatActivity {
                                             LinearLayoutManager.VERTICAL, false);
                                     rv.setLayoutManager(layoutManager);
                                     rv.setAdapter(adapter);
+
                                 }
                             }
                         } else {
