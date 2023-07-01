@@ -7,13 +7,15 @@ public class Usuario {
     private String url;
     private String descricao;
     private String trabalho;
+    private Double avaliacao;
 
-    public Usuario(String nome, String uid, String url, String descricao, String trabalho) {
+    public Usuario(String nome, String uid, String url, String descricao, String trabalho, Double avaliacao) {
         this.nome = nome;
         this.uid = uid;
         this.url = url;
         this.descricao = descricao;
         this.trabalho = trabalho;
+        this.avaliacao = avaliacao;
     }
 
     public String getNome() {
@@ -34,5 +36,9 @@ public class Usuario {
 
     public String getTrabalho(){
         return trabalho;
+    }
+
+    public Double getAvaliacao(){
+        return avaliacao;
     }
 }

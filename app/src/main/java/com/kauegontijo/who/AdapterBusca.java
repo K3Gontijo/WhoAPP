@@ -42,6 +42,7 @@ public class AdapterBusca extends RecyclerView.Adapter<BuscaViewHolder> {
         buscaViewHolder.nome.setText(usuario.getNome());
         buscaViewHolder.trabalho.setText(usuario.getTrabalho());
         buscaViewHolder.descricao.setText(usuario.getDescricao());
+        buscaViewHolder.avaliacao.setText(usuario.getAvaliacao().toString());
 
         if (usuario.getUrl() != ""){
             Picasso.get().load(usuario.getUrl()).into(buscaViewHolder.fotoUsuario);

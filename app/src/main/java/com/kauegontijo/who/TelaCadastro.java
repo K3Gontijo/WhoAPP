@@ -20,8 +20,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class TelaCadastro extends AppCompatActivity {
@@ -126,8 +124,9 @@ public class TelaCadastro extends AppCompatActivity {
         String url = "";
         String descricao = "";
         String trabalho ="";
+        Double avaliacao = 0.0;
 
-        Usuario user = new Usuario(nome, uid, url, descricao, trabalho);
+        Usuario user = new Usuario(nome, uid, url, descricao, trabalho, avaliacao);
 
         FirebaseFirestore.getInstance().collection("users")
                 .document(uid)

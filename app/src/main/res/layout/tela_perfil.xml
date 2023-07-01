@@ -207,24 +207,25 @@
         android:id="@+id/txtDescricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxHeight="138dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/descricao_backgroud"
         android:fontFamily="@font/montserrat_extrabold"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingEnd="20dp"
+        android:maxHeight="138dp"
+        android:maxLength="368"
         android:paddingStart="20dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="5dp"
         android:text=""
         android:textColor="#FFFFFF"
         android:textColorHint="#4DFFFFFF"
         android:textSize="12sp"
-        android:maxLength="368"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/box_center"
-        app:layout_constraintTop_toBottomOf="@+id/fotoPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/txtAvaliacao" />
 
     <ImageButton
         android:id="@+id/editarDescricao"
@@ -255,6 +256,26 @@
         android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/fotoPerfil"
         app:layout_constraintTop_toBottomOf="@+id/editNome" />
+
+    <TextView
+        android:id="@+id/txtAvaliacao"
+        android:layout_width="70dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/descricao_backgroud"
+        android:drawableRight="@drawable/baseline_star_24"
+        android:fontFamily="@font/montserrat_medium"
+        android:hint="avaliation"
+        android:paddingStart="12dp"
+        android:paddingEnd="3px"
+        android:text="0.0"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="#A1FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/fotoPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/txtTrabalho" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

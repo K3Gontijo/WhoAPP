@@ -46,6 +46,7 @@ public class TelaPerfil extends AppCompatActivity {
     private String usuarioAtual = FirebaseAuth.getInstance().getCurrentUser().getUid();
     private Uri mSelectedUri;
     private TextView txtDescricao;
+    private TextView txtAvaliacao;
 
     @Override
     public void onStart() {
@@ -71,6 +72,7 @@ public class TelaPerfil extends AppCompatActivity {
         editNome = findViewById(R.id.editNome);
         trabalho = findViewById(R.id.txtTrabalho);
         fotoPerfil = findViewById(R.id.fotoPerfil);
+        txtAvaliacao = findViewById(R.id.txtAvaliacao);
         txtDescricao = findViewById(R.id.txtDescricao);
         editarDescricao = findViewById(R.id.editarDescricao);
 
@@ -132,6 +134,10 @@ public class TelaPerfil extends AppCompatActivity {
                                     //mudando a visibilidade do botão
                                     editarDescricao.setVisibility(View.INVISIBLE);
                                     txtDescricao.setText(document.get("descricao").toString());
+                                }
+
+                                if(document.get("avaliacao")!= ""){
+                                    txtAvaliacao.setText(document.get("avaliacao").toString());
                                 }
 
                                 //verficando se o usuário ja possui foto ou não

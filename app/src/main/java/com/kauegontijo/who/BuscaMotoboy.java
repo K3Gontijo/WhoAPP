@@ -52,11 +52,18 @@ public class BuscaMotoboy extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult() ) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
 
-                                Usuario user = new Usuario(document.get("nome").toString(), document.get("uid").toString(), document.get("url").toString(),
-                                        document.get("descricao").toString(), document.get("trabalho").toString());
+                                String nome = document.get("nome").toString();
+                                String uid = document.get("uid").toString();
+                                String url= document.get("url").toString();
+                                String descricao = document.get("descricao").toString();
+                                String trabalho = document.get("trabalho").toString();
+                                String ava = document.get("avaliacao").toString();
+                                Double avaliacao = Double.parseDouble(ava);
+
+                                Usuario user = new Usuario(nome, uid, url, descricao, trabalho, avaliacao);
 
                                 if (user.getUid() != usuarioAtual) {
-                                    itens.add(new Usuario(user.getNome(), user.getUid(), user.getUrl(), user.getDescricao(), user.getTrabalho()));
+                                    itens.add(new Usuario(user.getNome(), user.getUid(), user.getUrl(), user.getDescricao(), user.getTrabalho(), user.getAvaliacao()));
                                     adapter = new AdapterBusca(BuscaMotoboy.this, itens);
                                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(BuscaMotoboy.this,
                                             LinearLayoutManager.VERTICAL, false);
