@@ -39,15 +39,8 @@ public class TelaLogin extends AppCompatActivity {
 
         FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (VerificaNet.isNetworkConnected(getApplicationContext())) {
-            // O dispositivo tem conectividade de Internet
-
-            if(usuarioAtual != null){
-                IrTelaInicial();
-            }
-        } else{
-            //FAZER A INTERFACE DE ERRO
-            IrTelaErro();
+        if (usuarioAtual != null) {
+            IrTelaInicial();
         }
     }
 
@@ -109,8 +102,6 @@ public class TelaLogin extends AppCompatActivity {
     }
 
 
-
-
     //METODO ADICIONADO NO txtCastrar PARA MANDAR PARA TELA DE CADASTRO
     public void IrTelaCadastro(View v) {
         Intent telaCadastro = new Intent(this, TelaCadastro.class);
@@ -121,12 +112,6 @@ public class TelaLogin extends AppCompatActivity {
         Intent telaInicial = new Intent(this, TelaInicial.class);
         startActivity(telaInicial);
     }
-
-    public void IrTelaErro(){
-        Intent telaErro = new Intent(this, TelaErro.class);
-        startActivity(telaErro);
-    }
-
 
     //SOBREESCREVENDO O BOTAO DE VOLTAR DO CELULAR PARA MOSTRAR UMA MENSAGEM SE O USUARIO QUER FECHAR O APLICATIVO
     @Override
@@ -150,14 +135,14 @@ public class TelaLogin extends AppCompatActivity {
     }
 
 
-//METODO PRA MOSTRAR E ESCONDER SENHA
-    public void ChangeType (View v){
+    //METODO PRA MOSTRAR E ESCONDER SENHA
+    public void ChangeType(View v) {
 
-        if(editSenha.getInputType() == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD){
+        if (editSenha.getInputType() == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
             editSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
             hideEye.setImageResource(R.drawable.baseline_remove_red_eye_24);
 
-        }else {
+        } else {
             hideEye.setImageResource(R.drawable.baseline_visibility_off_24);
             editSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
             editSenha.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
