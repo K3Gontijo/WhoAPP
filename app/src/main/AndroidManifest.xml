@@ -30,16 +30,7 @@
             android:name=".TelaDestaques"
             android:exported="false" />
         <activity
-            android:name=".BuscaMotoboy"
-            android:exported="false" />
-        <activity
-            android:name=".BuscaMarceneiro"
-            android:exported="false" />
-        <activity
-            android:name=".BuscaMecanico"
-            android:exported="false" />
-        <activity
-            android:name=".BuscaEletricista"
+            android:name=".TelaResultadoProfissao"
             android:exported="false" />
         <activity
             android:name=".TelaPerfil"

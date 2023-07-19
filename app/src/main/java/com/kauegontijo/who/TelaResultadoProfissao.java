@@ -21,7 +21,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class BuscaMotoboy extends AppCompatActivity {
+public class TelaResultadoProfissao extends AppCompatActivity {
 
     private RecyclerView rv;
     private AdapterBusca adapter;
@@ -29,21 +29,22 @@ public class BuscaMotoboy extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioAtual = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.busca_motoboy);
+        setContentView(R.layout.tela_busca_profissao);
         getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
 
-        rv = findViewById(R.id.listaMotoboy);
+        rv = findViewById(R.id.lista);
         itens = new ArrayList<Usuario>();
         BuscaUsuarios();
-
     }
+
     public void BuscaUsuarios(){
+        String value = getIntent().getStringExtra("selecionado");
+
         db.collection("users")
-                .whereEqualTo("trabalho", "Motoboy")
+                .whereEqualTo("trabalho", value)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -64,11 +65,12 @@ public class BuscaMotoboy extends AppCompatActivity {
 
                                 if (user.getUid() != usuarioAtual) {
                                     itens.add(new Usuario(user.getNome(), user.getUid(), user.getUrl(), user.getDescricao(), user.getTrabalho(), user.getAvaliacao()));
-                                    adapter = new AdapterBusca(BuscaMotoboy.this, itens);
-                                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(BuscaMotoboy.this,
+                                    adapter = new AdapterBusca(TelaResultadoProfissao.this, itens);
+                                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaResultadoProfissao.this,
                                             LinearLayoutManager.VERTICAL, false);
                                     rv.setLayoutManager(layoutManager);
                                     rv.setAdapter(adapter);
+
                                 }
                             }
                         } else {

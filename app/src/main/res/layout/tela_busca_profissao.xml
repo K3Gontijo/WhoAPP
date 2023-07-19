@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".BuscaMarceneiro">
+    tools:context=".TelaResultadoProfissao">
 
     <View
         android:id="@+id/box_top_shadow"
@@ -67,7 +67,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaMarceneiro"
+        android:id="@+id/lista"
         android:layout_width="match_parent"
         android:layout_height="641dp"
         app:layout_constraintBottom_toTopOf="@+id/box_bottom_shadow"
@@ -76,4 +76,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/box_top_shadow"
         app:layout_constraintVertical_bias="0.637" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

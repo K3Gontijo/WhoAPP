@@ -7,10 +7,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 
 public class TelaInicial extends AppCompatActivity {
+
+    private ImageButton service1;
+    private ImageButton service2;
+    private ImageButton service3;
+    private ImageButton service4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,37 +22,56 @@ public class TelaInicial extends AppCompatActivity {
         setContentView(R.layout.tela_inicial);
         getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
 
+        service1 = findViewById(R.id.service1);
+        service2 = findViewById(R.id.service2);
+        service3 = findViewById(R.id.service3);
+        service4 = findViewById(R.id.service4);
+
     }
 
-    //METODO PARA MANDAR PARA TELA DE PERFIL
-    public void IrPerfil(View v){
-        Intent irPerfil = new Intent(this, TelaPerfil.class);
-        startActivity(irPerfil);
+    public void ProfissaoSelecionada(View v){
+
+        service1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TelaInicial.this, TelaResultadoProfissao.class);
+                String trabSelecionado = "Eletricista"; // O valor que deseja passar
+                intent.putExtra("selecionado", trabSelecionado);
+                startActivity(intent);
+            }
+        });
+
+        service2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TelaInicial.this, TelaResultadoProfissao.class);
+                String trabSelecionado = "Mecanico"; // O valor que deseja passar
+                intent.putExtra("selecionado", trabSelecionado);
+                startActivity(intent);
+            }
+        });
+
+        service3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TelaInicial.this, TelaResultadoProfissao.class);
+                String trabSelecionado = "Marceneiro"; // O valor que deseja passar
+                intent.putExtra("selecionado", trabSelecionado);
+                startActivity(intent);
+            }
+        });
+
+        service4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TelaInicial.this, TelaResultadoProfissao.class);
+                String trabSelecionado = "Motoboy"; // O valor que deseja passar
+                intent.putExtra("selecionado", trabSelecionado);
+                startActivity(intent);
+            }
+        });
     }
 
-    //METODO PARA MANDAR PARA TELA DE ELETRICISTA
-    public void IrEletricista(View v){
-        Intent irEletricista = new Intent(this, BuscaEletricista.class);
-        startActivity(irEletricista);
-    }
-
-    //METODO PARA MANDAR PARA TELA DE MECANICO
-    public void IrMecanico(View v){
-        Intent irMecanico = new Intent(this, BuscaMecanico.class);
-        startActivity(irMecanico);
-    }
-
-    //METODO PARA MANDAR PARA TELA DE MARCENEIRO
-    public void IrMarceneiro(View v){
-        Intent irMarceneiro = new Intent(this, BuscaMarceneiro.class);
-        startActivity(irMarceneiro);
-    }
-
-    //METODO PARA MANDAR PARA TELA DE MOTOBOY
-    public void IrMotoboy(View v){
-        Intent irMotoboy = new Intent(this, BuscaMotoboy.class);
-        startActivity(irMotoboy);
-    }
 
     //METODO PARA MANDAR PARA TELA DE DESTAQUES
     public void IrDestaques(View v){
@@ -66,6 +89,12 @@ public class TelaInicial extends AppCompatActivity {
     public void IrServicos(View v){
         Intent irServicos = new Intent(this, TelaServicos.class);
         startActivity(irServicos);
+    }
+
+    //METODO PARA MANDAR PARA TELA DE PERFIL
+    public void IrPerfil(View v){
+        Intent irPerfil = new Intent(this, TelaPerfil.class);
+        startActivity(irPerfil);
     }
 
 
