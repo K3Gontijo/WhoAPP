@@ -219,6 +219,7 @@
         android:paddingEnd="20dp"
         android:paddingBottom="5dp"
         android:text=""
+        android:hint="Apresentação, descrição e experiência..."
         android:textColor="#FFFFFF"
         android:textColorHint="#4DFFFFFF"
         android:textSize="12sp"

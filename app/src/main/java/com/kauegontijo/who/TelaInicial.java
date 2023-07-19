@@ -27,9 +27,6 @@ public class TelaInicial extends AppCompatActivity {
         service3 = findViewById(R.id.service3);
         service4 = findViewById(R.id.service4);
 
-    }
-
-    public void ProfissaoSelecionada(View v){
 
         service1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +68,6 @@ public class TelaInicial extends AppCompatActivity {
             }
         });
     }
-
 
     //METODO PARA MANDAR PARA TELA DE DESTAQUES
     public void IrDestaques(View v){
