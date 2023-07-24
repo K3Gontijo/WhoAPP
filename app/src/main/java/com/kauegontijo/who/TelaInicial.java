@@ -28,11 +28,12 @@ public class TelaInicial extends AppCompatActivity {
         service4 = findViewById(R.id.service4);
 
 
+        //FUNÇÕES DOS BOTÕES
         service1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TelaInicial.this, TelaResultadoProfissao.class);
-                String trabSelecionado = "Eletricista"; // O valor que deseja passar
+                String trabSelecionado = "Eletricista";
                 intent.putExtra("selecionado", trabSelecionado);
                 startActivity(intent);
             }
@@ -42,7 +43,7 @@ public class TelaInicial extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TelaInicial.this, TelaResultadoProfissao.class);
-                String trabSelecionado = "Mecanico"; // O valor que deseja passar
+                String trabSelecionado = "Mecanico";
                 intent.putExtra("selecionado", trabSelecionado);
                 startActivity(intent);
             }
@@ -62,12 +63,13 @@ public class TelaInicial extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TelaInicial.this, TelaResultadoProfissao.class);
-                String trabSelecionado = "Motoboy"; // O valor que deseja passar
+                String trabSelecionado = "Motoboy";
                 intent.putExtra("selecionado", trabSelecionado);
                 startActivity(intent);
             }
         });
     }
+
 
     //METODO PARA MANDAR PARA TELA DE DESTAQUES
     public void IrDestaques(View v){

@@ -29,10 +29,11 @@ public class TelaResultadoProfissao extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioAtual = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+    //ONCREATE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_busca_profissao);
+        setContentView(R.layout.tela_resultado_profissao);
         getSupportActionBar().hide(); //PARA ESCONDER A BARRA DO TÍTULO
 
         rv = findViewById(R.id.lista);
@@ -40,6 +41,7 @@ public class TelaResultadoProfissao extends AppCompatActivity {
         BuscaUsuarios();
     }
 
+    //PUXANDO PERFIS DO BANCO DE DADOS
     public void BuscaUsuarios(){
         String value = getIntent().getStringExtra("selecionado");
 
@@ -80,6 +82,7 @@ public class TelaResultadoProfissao extends AppCompatActivity {
                 });
     }
 
+    //REDERECIONAR PARA OUTRA INTERFACE
     public void IrIncio(View v){
         Intent irInicio = new Intent(this, TelaInicial.class);
         startActivity(irInicio);
