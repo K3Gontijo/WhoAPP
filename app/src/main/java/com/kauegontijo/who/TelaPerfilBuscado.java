@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -40,13 +41,14 @@ public class TelaPerfilBuscado extends AppCompatActivity {
         txtTrabalho.setText(dados[2]);
         txtDescricao.setText(dados[3]);
         txtAvaliacao.setText(dados[4]);
+        String url = dados[1];
 
-        //verficando se o usuário ja possui foto ou não
-        if(dados[1] != ""){
-            String url = dados[1];
+        try {
+            Picasso.get().load(url).into(fotoPerfil);
+        }catch (Exception e){
+            url = "https://firebasestorage.googleapis.com/v0/b/whoapp-36515.appspot.com/o/images%2Fperfil-vazio.png?alt=media&token=e3558881-a384-4498-9c8f-035629e71c8f";
             Picasso.get().load(url).into(fotoPerfil);
         }
-
     }
 
     //METODOS PARA REDIRECIONAR TELA

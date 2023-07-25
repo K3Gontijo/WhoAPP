@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".TelaPerfilBuscado"
     android:background="@color/white">
+
     <View
         android:id="@+id/box_top_shadow"
         android:layout_width="match_parent"
@@ -86,10 +87,11 @@
         android:layout_height="120dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:padding="5dp"
         android:adjustViewBounds="false"
         android:background="@drawable/background_btn_perfil"
-        android:clickable="true"
-        android:scaleType="centerCrop"
+        android:clickable="false"
+        android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="@+id/box_center"
         app:layout_constraintTop_toTopOf="@+id/box_center"
         app:srcCompat="@drawable/perfil_de_usuario__1__1" />
@@ -172,6 +174,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/box_center"
         app:layout_constraintTop_toBottomOf="@+id/txtAvaliacao" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
