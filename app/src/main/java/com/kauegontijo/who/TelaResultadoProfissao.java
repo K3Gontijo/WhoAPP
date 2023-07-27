@@ -42,22 +42,22 @@ public class TelaResultadoProfissao extends AppCompatActivity {
     }
 
     //PUXANDO PERFIS DO BANCO DE DADOS
-    public void BuscaUsuarios(){
+    public void BuscaUsuarios() {
         String value = getIntent().getStringExtra("selecionado");
 
         db.collection("users")
-                .whereEqualTo("trabalho", value)
+                .whereEqualTo("trabalho", value).whereNotEqualTo("uid", usuarioAtual).limit(15)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult() ) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
 
                                 String nome = document.get("nome").toString();
                                 String uid = document.get("uid").toString();
-                                String url= document.get("url").toString();
+                                String url = document.get("url").toString();
                                 String descricao = document.get("descricao").toString();
                                 String trabalho = document.get("trabalho").toString();
                                 String ava = document.get("avaliacao").toString();
@@ -65,25 +65,23 @@ public class TelaResultadoProfissao extends AppCompatActivity {
 
                                 Usuario user = new Usuario(nome, uid, url, descricao, trabalho, avaliacao);
 
-                                if (user.getUid() != usuarioAtual) {
-                                    itens.add(new Usuario(user.getNome(), user.getUid(), user.getUrl(), user.getDescricao(), user.getTrabalho(), user.getAvaliacao()));
-                                    adapter = new AdapterBusca(TelaResultadoProfissao.this, itens);
-                                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaResultadoProfissao.this,
-                                            LinearLayoutManager.VERTICAL, false);
-                                    rv.setLayoutManager(layoutManager);
-                                    rv.setAdapter(adapter);
-
-                                }
+                                //if (user.getUid() != usuarioAtual) {
+                                itens.add(new Usuario(user.getNome(), user.getUid(), user.getUrl(), user.getDescricao(), user.getTrabalho(), user.getAvaliacao()));
+                                adapter = new AdapterBusca(TelaResultadoProfissao.this, itens);
+                                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaResultadoProfissao.this,
+                                        LinearLayoutManager.VERTICAL, false);
+                                rv.setLayoutManager(layoutManager);
+                                rv.setAdapter(adapter);
                             }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
+                            // else {
+                            //  Log.d(TAG, "Erro ao buscar documentos: ", task.getException());
                         }
                     }
                 });
     }
 
     //REDERECIONAR PARA OUTRA INTERFACE
-    public void IrIncio(View v){
+    public void IrIncio(View v) {
         Intent irInicio = new Intent(this, TelaInicial.class);
         startActivity(irInicio);
     }
